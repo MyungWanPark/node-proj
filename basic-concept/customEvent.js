@@ -7,8 +7,8 @@ const callback2 = (args) => {
   console.log('second event fired! with args = ', args);
 };
 
-emitter.addListener('myungwan', callback1);
-emitter.addListener('myungwan', callback2);
+emitter.on('myungwan', callback1);
+emitter.on('myungwan', callback2);
 
 emitter.emit('myungwan', { name: 'myungwan', age: 30 });
 emitter.removeListener('myungwan', callback1);
