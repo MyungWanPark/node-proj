@@ -6,11 +6,6 @@ const app = express();
 app.use(express.json());
 
 app.get('/file1', (req, res) => {
-  /*   try {
-    const data = fs.readFileSync('/file1.txt');
-  } catch (error) {
-    res.status(500).json({ message: 'file not found 😥' });
-  } */
   const data = fs.readFile('/file1.txt', (err, data) => {
     res.status(500).json({ message: 'file not found 😥' });
   });
