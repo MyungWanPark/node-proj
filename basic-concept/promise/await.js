@@ -13,8 +13,8 @@ async function getApple() {
 }
 
 async function getfruits() {
-  return Promise.all([getBanana(), getApple()]).then((fruits) =>
-    fruits.join(' + ')
-  );
+  return Promise.all([getBanana(), getApple()]) //
+    .then((fruits) => fruits.join(' + '));
 }
-getfruits().then(console.log);
+getfruits() //
+  .then(console.log);
