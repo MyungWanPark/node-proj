@@ -16,9 +16,13 @@ app.post(
   '/users',
   [
     body('name')
+      .trim()
       .isLength({ min: 2 })
       .withMessage('이름은 두 글자 이상이여야 합니다!!'),
-    body('email').isEmail().withMessage('이메일을 정확하게 입력해주세요.'),
+    body('email')
+      .normalizeEmail()
+      .isEmail()
+      .withMessage('이메일을 정확하게 입력해주세요.'),
     validate,
   ],
   (req, res, next) => {
